@@ -11,7 +11,6 @@ import {
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
-import { Link } from '@mui/material';
 
 const Register = () => {
   const [name, setName] = useState('');
