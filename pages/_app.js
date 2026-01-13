@@ -19,12 +19,12 @@ const theme = createTheme({
       dark: '#0a1929'
     },
     background: {
-      default: '#0a1929',
-      paper: '#0a4d68'
+      default: '#f8f9fa',
+      paper: '#ffffff'
     },
     text: {
-      primary: '#ffffff',
-      secondary: 'rgba(255, 255, 255, 0.7)'
+      primary: '#1a5f7a',
+      secondary: '#6b6b6b'
     }
   },
   typography: {

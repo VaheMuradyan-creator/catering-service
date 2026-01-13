@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, Button, Box, Grid, Card, CardContent, Divider, Chip } from '@mui/material';
+import { Container, Typography, Button, Box, Grid, Card, CardContent, Divider, Chip, Paper } from '@mui/material';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import OceanScene from '../components/OceanScene';
-import { Sailing, Restaurant, Diamond, Waves, Anchor } from '@mui/icons-material';
+import ParallaxImage from '../components/ParallaxImage';
+import FloatingBoat from '../components/FloatingBoat';
+import { Sailing, Restaurant, Diamond, Waves, Anchor, LocalDining, WineBar } from '@mui/icons-material';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +24,7 @@ export default function Home() {
     {
       type: 'boat',
       title: 'Luxury Boat Catering',
-      icon: <Sailing sx={{ fontSize: 48, color: '#d4af37' }} />,
+      icon: <Sailing sx={{ fontSize: 48, color: '#1a5f7a' }} />,
       price: 'From $150',
       perPerson: 'per person',
       features: [
@@ -37,7 +38,7 @@ export default function Home() {
         'Water activities included'
       ],
       highlight: true,
-      color: '#0a4d68',
+      color: '#1a5f7a',
       accent: '#d4af37'
     },
     {
@@ -57,15 +58,17 @@ export default function Home() {
         'Flexible packages'
       ],
       highlight: false,
-      color: '#2c2c2c',
+      color: '#6b6b6b',
       accent: '#8b7355'
     }
   ];
 
   return (
-    <Box sx={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Hero Section with 3D Ocean */}
+    <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa' }}>
+      {/* Hero Section with Real Beach Image */}
       <Box
+        component={motion.div}
+        style={{ opacity: heroOpacity, scale: heroScale }}
         sx={{
           height: '100vh',
           width: '100%',
@@ -73,45 +76,62 @@ export default function Home() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          overflow: 'hidden',
-          background: 'linear-gradient(180deg, #0a1929 0%, #0a4d68 50%, #1a5f7a 100%)'
+          overflow: 'hidden'
         }}
       >
-        {/* 3D Ocean Background */}
-        <Box sx={{ position: 'absolute', width: '100%', height: '100%', opacity: 0.3 }}>
-          <OceanScene />
-        </Box>
-
-        {/* Animated Waves Overlay */}
+        {/* Parallax Beach Background */}
+        <ParallaxImage 
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          alt="Luxury Beach"
+          speed={0.3}
+        />
+        
+        {/* Overlay Gradient */}
         <Box
           sx={{
             position: 'absolute',
-            bottom: 0,
+            top: 0,
             left: 0,
             right: 0,
-            height: '200px',
-            background: 'linear-gradient(180deg, transparent 0%, rgba(10, 77, 104, 0.3) 100%)',
-            zIndex: 1
+            bottom: 0,
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(26,95,122,0.4) 100%)',
+            zIndex: 2
           }}
         />
 
+        {/* Floating Boat Animation */}
+        <FloatingBoat 
+          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
+          alt="Luxury Yacht"
+        />
+
+        {/* Glassmorphism Hero Content */}
         <Container
           maxWidth="lg"
           sx={{
             position: 'relative',
-            zIndex: 2,
-            textAlign: 'center',
-            color: 'white'
+            zIndex: 4,
+            textAlign: 'center'
           }}
         >
-          <motion.div
-            style={{ opacity, scale }}
+          <Paper
+            component={motion.div}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '24px',
+              p: { xs: 4, md: 6 },
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              maxWidth: '900px',
+              mx: 'auto'
+            }}
           >
-            <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
-              <Anchor sx={{ fontSize: 48, color: '#d4af37' }} />
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+              <Anchor sx={{ fontSize: 48, color: '#1a5f7a' }} />
               <Typography
                 variant="h1"
                 sx={{
@@ -120,10 +140,7 @@ export default function Home() {
                   fontFamily: '"Playfair Display", serif',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  background: 'linear-gradient(135deg, #ffffff 0%, #d4af37 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  color: '#1a5f7a',
                   mb: 2
                 }}
               >
@@ -138,21 +155,21 @@ export default function Home() {
                 fontFamily: '"Playfair Display", serif',
                 letterSpacing: '0.15em',
                 mb: 3,
-                color: '#d4af37',
+                color: '#1a5f7a',
                 textTransform: 'uppercase'
               }}
             >
               Culinary Excellence
             </Typography>
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 fontSize: { xs: '1.1rem', md: '1.5rem' },
                 fontFamily: '"Cormorant Garamond", serif',
                 fontWeight: 300,
-                letterSpacing: '0.1em',
+                letterSpacing: '0.05em',
                 mb: 6,
-                color: 'rgba(255, 255, 255, 0.9)',
+                color: '#2c3e50',
                 maxWidth: '800px',
                 mx: 'auto',
                 lineHeight: 1.8
@@ -167,32 +184,32 @@ export default function Home() {
             >
               <Link href="/packages" passHref legacyBehavior>
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   size="large"
                   sx={{
                     py: 2.5,
                     px: 6,
-                    color: '#d4af37',
-                    borderColor: '#d4af37',
-                    borderWidth: '2px',
+                    backgroundColor: '#1a5f7a',
+                    color: 'white',
                     fontSize: '1.1rem',
                     fontFamily: '"Playfair Display", serif',
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
+                    borderRadius: '12px',
+                    boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
                     '&:hover': {
-                      borderWidth: '2px',
-                      backgroundColor: '#d4af37',
-                      color: '#0a1929',
-                      borderColor: '#d4af37'
+                      backgroundColor: '#0a4d68',
+                      boxShadow: '0 12px 32px rgba(26, 95, 122, 0.4)',
+                      transform: 'translateY(-2px)'
                     },
-                    transition: 'all 0.4s ease'
+                    transition: 'all 0.3s ease'
                   }}
                 >
                   Explore Our Services
                 </Button>
               </Link>
             </motion.div>
-          </motion.div>
+          </Paper>
         </Container>
 
         {/* Scroll Indicator */}
@@ -204,18 +221,18 @@ export default function Home() {
             bottom: '40px',
             left: '50%',
             transform: 'translateX(-50%)',
-            zIndex: 3
+            zIndex: 5
           }}
         >
-          <Waves sx={{ color: '#d4af37', fontSize: 32 }} />
+          <Waves sx={{ color: '#1a5f7a', fontSize: 32 }} />
         </motion.div>
       </Box>
 
-      {/* Luxury Features Section */}
+      {/* Luxury Features Section - Light & Transparent */}
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          backgroundColor: '#0a1929',
+          backgroundColor: '#ffffff',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -234,7 +251,7 @@ export default function Home() {
                 mb: 8,
                 fontFamily: '"Playfair Display", serif',
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
-                color: '#d4af37',
+                color: '#1a5f7a',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 fontWeight: 300
@@ -246,10 +263,10 @@ export default function Home() {
 
           <Grid container spacing={4}>
             {[
-              { icon: <Diamond />, title: 'Premium Quality', desc: 'Finest ingredients sourced globally' },
-              { icon: <Sailing />, title: 'Luxury Vessels', desc: 'Exclusive access to private yachts' },
-              { icon: <Waves />, title: 'Ocean Views', desc: 'Breathtaking seascapes as your backdrop' },
-              { icon: <Restaurant />, title: 'Master Chefs', desc: 'Award-winning culinary expertise' }
+              { icon: <Diamond />, title: 'Premium Quality', desc: 'Finest ingredients sourced globally', color: '#d4af37' },
+              { icon: <Sailing />, title: 'Luxury Vessels', desc: 'Exclusive access to private yachts', color: '#1a5f7a' },
+              { icon: <Waves />, title: 'Ocean Views', desc: 'Breathtaking seascapes as your backdrop', color: '#4a90a4' },
+              { icon: <LocalDining />, title: 'Master Chefs', desc: 'Award-winning culinary expertise', color: '#8b7355' }
             ].map((feature, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <motion.div
@@ -257,51 +274,51 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
                 >
-                  <Card
+                  <Paper
                     sx={{
-                      backgroundColor: 'rgba(212, 175, 55, 0.05)',
-                      border: '1px solid rgba(212, 175, 55, 0.2)',
-                      borderRadius: 0,
+                      backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      borderRadius: '20px',
                       textAlign: 'center',
                       py: 4,
                       px: 3,
                       height: '100%',
                       transition: 'all 0.3s ease',
+                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                       '&:hover': {
-                        transform: 'translateY(-10px)',
-                        borderColor: '#d4af37',
-                        backgroundColor: 'rgba(212, 175, 55, 0.1)'
+                        boxShadow: '0 8px 32px rgba(26, 95, 122, 0.15)',
+                        borderColor: feature.color
                       }
                     }}
                   >
-                    <CardContent>
-                      <Box sx={{ color: '#d4af37', mb: 2 }}>
-                        {feature.icon}
-                      </Box>
-                      <Typography
-                        variant="h6"
-                        sx={{
-                          fontFamily: '"Playfair Display", serif',
-                          color: '#d4af37',
-                          mb: 1,
-                          fontWeight: 400
-                        }}
-                      >
-                        {feature.title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: 'rgba(255, 255, 255, 0.7)',
-                          fontFamily: '"Cormorant Garamond", serif',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {feature.desc}
-                      </Typography>
-                    </CardContent>
-                  </Card>
+                    <Box sx={{ color: feature.color, mb: 2 }}>
+                      {feature.icon}
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontFamily: '"Playfair Display", serif',
+                        color: '#1a5f7a',
+                        mb: 1,
+                        fontWeight: 400
+                      }}
+                    >
+                      {feature.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#6b6b6b',
+                        fontFamily: '"Cormorant Garamond", serif',
+                        fontSize: '1.1rem'
+                      }}
+                    >
+                      {feature.desc}
+                    </Typography>
+                  </Paper>
                 </motion.div>
               </Grid>
             ))}
@@ -309,15 +326,35 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Pricing Comparison Section */}
+      {/* Pricing Comparison Section - Modern & Transparent */}
       <Box
         sx={{
           py: { xs: 10, md: 15 },
-          background: 'linear-gradient(180deg, #0a1929 0%, #0a4d68 100%)',
-          position: 'relative'
+          background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+          position: 'relative',
+          overflow: 'hidden'
         }}
       >
-        <Container maxWidth="lg">
+        {/* Background Image with Parallax */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.1,
+            zIndex: 0
+          }}
+        >
+          <ParallaxImage 
+            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
+            alt="Yacht Background"
+            speed={0.2}
+          />
+        </Box>
+
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -331,7 +368,7 @@ export default function Home() {
                 mb: 2,
                 fontFamily: '"Playfair Display", serif',
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
-                color: '#d4af37',
+                color: '#1a5f7a',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 fontWeight: 300
@@ -345,7 +382,7 @@ export default function Home() {
                 textAlign: 'center',
                 mb: 8,
                 fontFamily: '"Cormorant Garamond", serif',
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: '#6b6b6b',
                 fontSize: '1.3rem',
                 fontWeight: 300
               }}
@@ -362,23 +399,27 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <Card
+                  <Paper
                     sx={{
                       backgroundColor: option.highlight 
-                        ? 'rgba(212, 175, 55, 0.1)' 
-                        : 'rgba(255, 255, 255, 0.05)',
+                        ? 'rgba(255, 255, 255, 0.9)' 
+                        : 'rgba(255, 255, 255, 0.7)',
+                      backdropFilter: 'blur(20px)',
                       border: option.highlight 
-                        ? '2px solid #d4af37' 
-                        : '1px solid rgba(212, 175, 55, 0.3)',
-                      borderRadius: 0,
+                        ? '2px solid #1a5f7a' 
+                        : '1px solid rgba(26, 95, 122, 0.2)',
+                      borderRadius: '24px',
                       height: '100%',
                       position: 'relative',
                       overflow: 'hidden',
+                      boxShadow: option.highlight 
+                        ? '0 12px 40px rgba(26, 95, 122, 0.2)' 
+                        : '0 8px 24px rgba(0, 0, 0, 0.1)',
                       '&:hover': {
-                        borderColor: '#d4af37',
-                        boxShadow: '0 20px 60px rgba(212, 175, 55, 0.3)'
+                        boxShadow: '0 16px 48px rgba(26, 95, 122, 0.25)',
+                        borderColor: '#1a5f7a'
                       },
                       transition: 'all 0.4s ease'
                     }}
@@ -390,22 +431,23 @@ export default function Home() {
                           position: 'absolute',
                           top: 20,
                           right: 20,
-                          backgroundColor: '#d4af37',
-                          color: '#0a1929',
+                          backgroundColor: '#1a5f7a',
+                          color: 'white',
                           fontFamily: '"Playfair Display", serif',
                           fontWeight: 600,
-                          zIndex: 1
+                          zIndex: 1,
+                          borderRadius: '12px'
                         }}
                       />
                     )}
-                    <CardContent sx={{ p: 5, color: 'white' }}>
+                    <CardContent sx={{ p: 5 }}>
                       <Box sx={{ textAlign: 'center', mb: 4 }}>
                         {option.icon}
                         <Typography
                           variant="h4"
                           sx={{
                             fontFamily: '"Playfair Display", serif',
-                            color: option.accent,
+                            color: option.color,
                             mt: 2,
                             mb: 1,
                             fontWeight: 400,
@@ -420,7 +462,7 @@ export default function Home() {
                             variant="h3"
                             sx={{
                               fontFamily: '"Playfair Display", serif',
-                              color: option.accent,
+                              color: option.color,
                               fontWeight: 300,
                               display: 'inline'
                             }}
@@ -431,7 +473,7 @@ export default function Home() {
                             variant="body1"
                             sx={{
                               fontFamily: '"Cormorant Garamond", serif',
-                              color: 'rgba(255, 255, 255, 0.7)',
+                              color: '#6b6b6b',
                               ml: 1,
                               display: 'inline',
                               fontSize: '1.2rem'
@@ -442,7 +484,7 @@ export default function Home() {
                         </Box>
                       </Box>
 
-                      <Divider sx={{ borderColor: 'rgba(212, 175, 55, 0.3)', my: 4 }} />
+                      <Divider sx={{ borderColor: 'rgba(26, 95, 122, 0.2)', my: 4 }} />
 
                       <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
                         {option.features.map((feature, idx) => (
@@ -467,14 +509,14 @@ export default function Home() {
                                   width: 8,
                                   height: 8,
                                   borderRadius: '50%',
-                                  backgroundColor: option.accent,
+                                  backgroundColor: option.color,
                                   mr: 2,
                                   flexShrink: 0
                                 }}
                               />
                               <Typography
                                 sx={{
-                                  color: 'rgba(255, 255, 255, 0.9)',
+                                  color: '#2c3e50',
                                   fontFamily: '"Cormorant Garamond", serif',
                                   fontSize: '1.15rem'
                                 }}
@@ -494,18 +536,21 @@ export default function Home() {
                             sx={{
                               py: 2,
                               px: 4,
-                              backgroundColor: option.highlight ? option.accent : 'transparent',
-                              color: option.highlight ? '#0a1929' : option.accent,
-                              borderColor: option.accent,
+                              backgroundColor: option.highlight ? option.color : 'transparent',
+                              color: option.highlight ? 'white' : option.color,
+                              borderColor: option.color,
                               borderWidth: '2px',
                               fontFamily: '"Playfair Display", serif',
                               letterSpacing: '0.1em',
                               textTransform: 'uppercase',
                               fontSize: '1rem',
+                              borderRadius: '12px',
                               '&:hover': {
-                                backgroundColor: option.accent,
-                                color: '#0a1929',
-                                borderColor: option.accent
+                                backgroundColor: option.color,
+                                color: 'white',
+                                borderColor: option.color,
+                                transform: 'translateY(-2px)',
+                                boxShadow: `0 8px 24px ${option.color}40`
                               },
                               transition: 'all 0.3s ease'
                             }}
@@ -515,7 +560,7 @@ export default function Home() {
                         </Link>
                       </Box>
                     </CardContent>
-                  </Card>
+                  </Paper>
                 </motion.div>
               </Grid>
             ))}
@@ -523,76 +568,102 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Elegant CTA Section */}
+      {/* Elegant CTA Section - Light & Modern */}
       <Box
         sx={{
           py: { xs: 10, md: 15 },
-          background: 'linear-gradient(135deg, #0a1929 0%, #1a3a4a 100%)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
           position: 'relative',
           overflow: 'hidden'
         }}
       >
-        <Container maxWidth="md">
+        {/* Subtle Background Pattern */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.03,
+            backgroundImage: 'url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+
+        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            style={{ textAlign: 'center', color: 'white' }}
+            style={{ textAlign: 'center' }}
           >
-            <Typography
-              variant="h2"
+            <Paper
               sx={{
-                fontFamily: '"Playfair Display", serif',
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                color: '#d4af37',
-                mb: 3,
-                fontWeight: 300,
-                letterSpacing: '0.1em'
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(26, 95, 122, 0.1)',
+                borderRadius: '24px',
+                p: { xs: 4, md: 6 },
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)'
               }}
             >
-              Ready to Set Sail?
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                fontFamily: '"Cormorant Garamond", serif',
-                color: 'rgba(255, 255, 255, 0.8)',
-                mb: 6,
-                fontSize: '1.3rem',
-                fontWeight: 300,
-                lineHeight: 1.8
-              }}
-            >
-              Contact us to begin planning your extraordinary maritime dining experience. 
-              Our team of experts will craft a bespoke event that exceeds all expectations.
-            </Typography>
-            <Link href="/contact" passHref legacyBehavior>
-              <Button
-                variant="outlined"
-                size="large"
+              <Typography
+                variant="h2"
                 sx={{
-                  py: 2.5,
-                  px: 6,
-                  color: '#d4af37',
-                  borderColor: '#d4af37',
-                  borderWidth: '2px',
-                  fontSize: '1.1rem',
                   fontFamily: '"Playfair Display", serif',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  '&:hover': {
-                    borderWidth: '2px',
-                    backgroundColor: '#d4af37',
-                    color: '#0a1929',
-                    borderColor: '#d4af37'
-                  },
-                  transition: 'all 0.4s ease'
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  color: '#1a5f7a',
+                  mb: 3,
+                  fontWeight: 300,
+                  letterSpacing: '0.1em'
                 }}
               >
-                Schedule Consultation
-              </Button>
-            </Link>
+                Ready to Set Sail?
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: '"Cormorant Garamond", serif',
+                  color: '#6b6b6b',
+                  mb: 6,
+                  fontSize: '1.3rem',
+                  fontWeight: 300,
+                  lineHeight: 1.8
+                }}
+              >
+                Contact us to begin planning your extraordinary maritime dining experience. 
+                Our team of experts will craft a bespoke event that exceeds all expectations.
+              </Typography>
+              <Link href="/contact" passHref legacyBehavior>
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    py: 2.5,
+                    px: 6,
+                    backgroundColor: '#1a5f7a',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontFamily: '"Playfair Display", serif',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    borderRadius: '12px',
+                    boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
+                    '&:hover': {
+                      backgroundColor: '#0a4d68',
+                      boxShadow: '0 12px 32px rgba(26, 95, 122, 0.4)',
+                      transform: 'translateY(-2px)'
+                    },
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  Schedule Consultation
+                </Button>
+              </Link>
+            </Paper>
           </motion.div>
         </Container>
       </Box>
