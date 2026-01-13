@@ -105,7 +105,12 @@ export default function Home() {
           sx={{
             position: 'relative',
             zIndex: 4,
-            textAlign: 'center'
+            textAlign: 'center',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            pt: { xs: 8, md: 0 }
           }}
         >
           <Box

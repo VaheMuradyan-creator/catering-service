@@ -1,6 +1,8 @@
 import { Container, Typography, Grid, Card, CardContent, CardMedia, Button, Box, Divider, List, ListItem, ListItemText } from '@mui/material';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import ParallaxImage from '../components/ParallaxImage';
 
 const packages = [
   {
@@ -96,101 +98,232 @@ export default function Packages() {
   const router = useRouter();
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#f8f8f8', minHeight: '100vh' }}>
-      <Container>
-        <Typography 
-          variant="h2" 
-          align="center" 
-          sx={{ 
-            mb: 6,
-            fontWeight: 'bold',
-            color: '#333'
+    <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          height: '40vh',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <ParallaxImage 
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          alt="Packages"
+          speed={0.2}
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(26,95,122,0.4) 100%)',
+            zIndex: 2
+          }}
+        />
+        <Container
+          sx={{
+            position: 'relative',
+            zIndex: 3,
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center'
           }}
         >
-          Catering Packages
-        </Typography>
-        
-        <Grid container spacing={4}>
-          {packages.map((pkg) => (
-            <Grid item xs={12} md={4} key={pkg.id}>
-              <Card 
-                sx={{ 
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.2s',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: 6
-                  }
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={pkg.image}
-                  alt={pkg.name}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold' }}>
-                    {pkg.name}
-                  </Typography>
-                  <Typography variant="h5" color="primary" gutterBottom>
-                    ${pkg.price}{pkg.perPerson ? ' per person' : ''}
-                  </Typography>
-                  <Typography color="text.secondary" paragraph>
-                    {pkg.description}
-                  </Typography>
-                  <Typography variant="subtitle2" color="text.secondary">
-                    Minimum {pkg.minGuests} guests
-                  </Typography>
-                  
-                  <Divider sx={{ my: 2 }} />
-                  
-                  {Object.entries(pkg.menuItems).map(([category, items]) => (
-                    <Box key={category} sx={{ mb: 2 }}>
-                      <Typography 
-                        variant="subtitle1" 
-                        sx={{ 
-                          fontWeight: 'bold',
-                          textTransform: 'capitalize',
+          <Box
+            component={motion.div}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              p: { xs: 4, md: 6 },
+              maxWidth: '800px'
+            }}
+          >
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '2.5rem', md: '4rem' },
+                fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                letterSpacing: '-0.02em',
+                color: '#1a5f7a',
+                mb: 2
+              }}
+            >
+              Our Packages
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: { xs: '1rem', md: '1.3rem' },
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 400,
+                color: '#2c3e50',
+                lineHeight: 1.7
+              }}
+            >
+              Choose the perfect package for your event
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Packages Section */}
+      <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#ffffff' }}>
+        <Container>
+          <Grid container spacing={4}>
+            {packages.map((pkg, index) => (
+              <Grid item xs={12} md={4} key={pkg.id}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                >
+                  <Card
+                    sx={{
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      borderRadius: '20px',
+                      transition: 'all 0.3s ease',
+                      overflow: 'hidden',
+                      '&:hover': {
+                        borderColor: '#1a5f7a',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        boxShadow: '0 8px 32px rgba(26, 95, 122, 0.15)'
+                      }
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={pkg.image}
+                      alt={pkg.name}
+                    />
+                    <CardContent sx={{ flexGrow: 1, p: 4 }}>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontWeight: 600,
+                          color: '#1a5f7a',
                           mb: 1
                         }}
                       >
-                        {category.replace(/([A-Z])/g, ' $1').trim()}:
+                        {pkg.name}
                       </Typography>
-                      <List dense>
-                        {items.map((item, index) => (
-                          <ListItem key={index} sx={{ py: 0 }}>
-                            <ListItemText primary={item} />
-                          </ListItem>
-                        ))}
-                      </List>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontFamily: 'Inter, sans-serif',
+                          color: '#1a5f7a',
+                          mb: 2,
+                          fontWeight: 500
+                        }}
+                      >
+                        ${pkg.price}{pkg.perPerson ? ' per person' : ''}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: 'Inter, sans-serif',
+                          color: '#6b6b6b',
+                          mb: 3,
+                          fontSize: '1rem'
+                        }}
+                      >
+                        {pkg.description}
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{
+                          fontFamily: 'Inter, sans-serif',
+                          color: '#6b6b6b',
+                          mb: 3
+                        }}
+                      >
+                        Minimum {pkg.minGuests} guests
+                      </Typography>
+                      
+                      <Divider sx={{ borderColor: 'rgba(26, 95, 122, 0.1)', my: 3 }} />
+                      
+                      {Object.entries(pkg.menuItems).map(([category, items]) => (
+                        <Box key={category} sx={{ mb: 2 }}>
+                          <Typography
+                            variant="subtitle1"
+                            sx={{
+                              fontFamily: 'Inter, sans-serif',
+                              fontWeight: 600,
+                              color: '#1a5f7a',
+                              mb: 1,
+                              textTransform: 'capitalize'
+                            }}
+                          >
+                            {category.replace(/([A-Z])/g, ' $1').trim()}:
+                          </Typography>
+                          <List dense>
+                            {items.map((item, idx) => (
+                              <ListItem key={idx} sx={{ py: 0.5 }}>
+                                <ListItemText
+                                  primary={item}
+                                  sx={{
+                                    '& .MuiListItemText-primary': {
+                                      fontFamily: 'Inter, sans-serif',
+                                      fontSize: '0.9rem',
+                                      color: '#6b6b6b'
+                                    }
+                                  }}
+                                />
+                              </ListItem>
+                            ))}
+                          </List>
+                        </Box>
+                      ))}
+                    </CardContent>
+                    <Box sx={{ p: 3, pt: 0 }}>
+                      <Link href={`/order/${pkg.id}`} passHref legacyBehavior>
+                        <Button
+                          fullWidth
+                          variant="contained"
+                          sx={{
+                            backgroundColor: '#1a5f7a',
+                            color: 'white',
+                            fontFamily: 'Inter, sans-serif',
+                            fontWeight: 500,
+                            borderRadius: '10px',
+                            py: 1.5,
+                            '&:hover': {
+                              backgroundColor: '#0a4d68',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)'
+                            },
+                            transition: 'all 0.3s ease'
+                          }}
+                        >
+                          Select Package
+                        </Button>
+                      </Link>
                     </Box>
-                  ))}
-                </CardContent>
-                <Box sx={{ p: 2, pt: 0 }}>
-                  <Link href={`/order/${pkg.id}`} passHref legacyBehavior>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      size="large"
-                      sx={{
-                        backgroundColor: '#d4af37',
-                        '&:hover': {
-                          backgroundColor: '#b4941f'
-                        }
-                      }}
-                    >
-                      Select Package
-                    </Button>
-                  </Link>
-                </Box>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
     </Box>
   );
 }

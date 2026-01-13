@@ -1,8 +1,8 @@
-import React from 'react';
 import { Container, Typography, Box, Grid, Card, CardContent, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
+import ParallaxImage from '../components/ParallaxImage';
 
-const About = () => {
+export default function About() {
   const teamMembers = [
     {
       name: "John Smith",
@@ -25,118 +25,197 @@ const About = () => {
   ];
 
   return (
-    <Box sx={{ pt: 10, pb: 8 }}>
+    <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          height: '60vh',
-          backgroundImage: 'url("/about-hero.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          height: '50vh',
           position: 'relative',
-          mb: 8,
-          '&::before': {
-            content: '""',
+          overflow: 'hidden'
+        }}
+      >
+        <ParallaxImage 
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          alt="About Us"
+          speed={0.2}
+        />
+        <Box
+          sx={{
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)'
-          }
-        }}
-      >
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(26,95,122,0.4) 100%)',
+            zIndex: 2
+          }}
+        />
         <Container
           sx={{
+            position: 'relative',
+            zIndex: 3,
             height: '100%',
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'center',
-            position: 'relative',
-            zIndex: 1,
-            color: 'white'
+            textAlign: 'center'
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          <Box
+            component={motion.div}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              p: { xs: 4, md: 6 },
+              maxWidth: '800px'
+            }}
           >
-            <Typography variant="h2" gutterBottom>
-              Our Story
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '2.5rem', md: '4rem' },
+                fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                letterSpacing: '-0.02em',
+                color: '#1a5f7a',
+                mb: 2
+              }}
+            >
+              About Us
             </Typography>
-            <Typography variant="h5">
-              Crafting Culinary Excellence Since 2010
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: { xs: '1rem', md: '1.3rem' },
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 400,
+                color: '#2c3e50',
+                lineHeight: 1.7
+              }}
+            >
+              Crafting extraordinary maritime dining experiences
             </Typography>
-          </motion.div>
+          </Box>
         </Container>
       </Box>
 
-      {/* Mission Section */}
-      <Container maxWidth="md" sx={{ mb: 8 }}>
-        <Grid container spacing={6}>
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-            >
-              <Typography variant="h3" gutterBottom>
-                Our Mission
-              </Typography>
-              <Typography paragraph>
-                To deliver exceptional catering experiences that exceed expectations, using the finest ingredients and innovative culinary techniques. We believe that every event deserves memorable food that brings people together.
-              </Typography>
-            </motion.div>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              component="img"
-              src="/mission.jpg"
-              alt="Our Mission"
+      {/* Content Section */}
+      <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#ffffff' }}>
+        <Container maxWidth="lg">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Typography
+              variant="h2"
               sx={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: 2,
-                boxShadow: 3
+                textAlign: 'center',
+                mb: 6,
+                fontFamily: 'Inter, sans-serif',
+                fontSize: { xs: '2rem', md: '3rem' },
+                color: '#1a5f7a',
+                fontWeight: 600,
+                letterSpacing: '-0.02em'
               }}
-            />
-          </Grid>
-        </Grid>
-      </Container>
+            >
+              Our Story
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                textAlign: 'center',
+                mb: 8,
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '1.1rem',
+                color: '#6b6b6b',
+                lineHeight: 1.8,
+                maxWidth: '800px',
+                mx: 'auto'
+              }}
+            >
+              With a passion for culinary excellence and a love for the ocean, we bring together 
+              the finest cuisine and breathtaking maritime settings. Our team of expert chefs and 
+              event coordinators work tirelessly to create unforgettable experiences that combine 
+              luxury, elegance, and the natural beauty of the sea.
+            </Typography>
+          </motion.div>
 
-      {/* Team Section */}
-      <Box sx={{ backgroundColor: '#f8f8f8', py: 8 }}>
-        <Container>
-          <Typography variant="h3" align="center" gutterBottom>
-            Meet Our Team
-          </Typography>
-          <Grid container spacing={4} sx={{ mt: 4 }}>
+          <Grid container spacing={4}>
             {teamMembers.map((member, index) => (
               <Grid item xs={12} md={4} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
                   viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
                 >
-                  <Card sx={{ height: '100%' }}>
-                    <CardContent sx={{ textAlign: 'center' }}>
-                      <Avatar
-                        src={member.image}
-                        sx={{ width: 120, height: 120, mx: 'auto', mb: 2 }}
-                      />
-                      <Typography variant="h5" gutterBottom>
-                        {member.name}
-                      </Typography>
-                      <Typography variant="subtitle1" color="primary" gutterBottom>
-                        {member.role}
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary">
-                        {member.description}
-                      </Typography>
-                    </CardContent>
+                  <Card
+                    sx={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      borderRadius: '20px',
+                      textAlign: 'center',
+                      p: 4,
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        borderColor: '#1a5f7a',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                      }
+                    }}
+                  >
+                    <Avatar
+                      src={member.image}
+                      alt={member.name}
+                      sx={{
+                        width: 120,
+                        height: 120,
+                        mx: 'auto',
+                        mb: 3,
+                        border: '3px solid #1a5f7a'
+                      }}
+                    />
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontFamily: 'Inter, sans-serif',
+                        color: '#1a5f7a',
+                        mb: 1,
+                        fontWeight: 600
+                      }}
+                    >
+                      {member.name}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontFamily: 'Inter, sans-serif',
+                        color: '#1a5f7a',
+                        mb: 2,
+                        fontWeight: 500
+                      }}
+                    >
+                      {member.role}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontFamily: 'Inter, sans-serif',
+                        color: '#6b6b6b',
+                        fontSize: '1rem'
+                      }}
+                    >
+                      {member.description}
+                    </Typography>
                   </Card>
                 </motion.div>
               </Grid>
@@ -146,6 +225,4 @@ const About = () => {
       </Box>
     </Box>
   );
-};
-
-export default About;
+}
