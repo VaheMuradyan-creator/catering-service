@@ -227,12 +227,25 @@ export default function Home() {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          backgroundColor: '#ffffff',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+            zIndex: 0
+          }
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -323,29 +336,24 @@ export default function Home() {
       <Box
         sx={{
           py: { xs: 10, md: 15 },
-          background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
           position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        {/* Background Image with Parallax */}
-        <Box
-          sx={{
+          overflow: 'hidden',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          '&::before': {
+            content: '""',
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            opacity: 0.1,
+            backgroundColor: 'rgba(255, 255, 255, 0.6)',
             zIndex: 0
-          }}
-        >
-          <ParallaxImage 
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
-            alt="Yacht Background"
-            speed={0.2}
-          />
-        </Box>
+          }
+        }}
+      >
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
@@ -562,25 +570,24 @@ export default function Home() {
       <Box
         sx={{
           py: { xs: 10, md: 15 },
-          background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
           position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        {/* Subtle Background Pattern */}
-        <Box
-          sx={{
+          overflow: 'hidden',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          '&::before': {
+            content: '""',
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            opacity: 0.03,
-            backgroundImage: 'url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+            zIndex: 0
+          }
+        }}
+      >
 
         <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div

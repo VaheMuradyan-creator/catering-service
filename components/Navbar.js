@@ -41,10 +41,10 @@ const Navbar = () => {
     <AppBar 
       position="fixed" 
       sx={{
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        backgroundColor: 'transparent',
         backdropFilter: 'blur(20px)',
         boxShadow: 'none',
-        borderBottom: '1px solid rgba(26, 95, 122, 0.1)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         transform: visible ? 'translateY(0)' : 'translateY(-100%)',
         transition: 'transform 0.3s ease-in-out',
         height: '60px'
@@ -67,9 +67,9 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
+                  <Button
                   sx={{
-                    color: '#1a5f7a',
+                    color: 'white',
                     fontSize: '1.1rem',
                     textTransform: 'none',
                     ml: 0,
@@ -78,8 +78,11 @@ const Navbar = () => {
                     letterSpacing: '-0.02em',
                     px: 2,
                     py: 1,
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '8px',
                     '&:hover': {
-                      backgroundColor: 'transparent'
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)'
                     }
                   }}
                 >
@@ -103,7 +106,7 @@ const Navbar = () => {
                 >
                   <Button
                     sx={{
-                      color: '#1a5f7a',
+                      color: 'white',
                       fontSize: '0.9rem',
                       textTransform: 'none',
                       fontFamily: 'Inter, sans-serif',
@@ -111,12 +114,13 @@ const Navbar = () => {
                       letterSpacing: '-0.01em',
                       px: 2,
                       py: 1,
-                      backgroundColor: 'transparent',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(10px)',
                       borderRadius: '8px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(26, 95, 122, 0.08)',
-                        color: '#1a5f7a'
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        color: 'white'
                       }
                     }}
                   >
@@ -133,19 +137,20 @@ const Navbar = () => {
                 <Button 
                   onClick={handleLogout}
                   sx={{
-                    color: '#1a5f7a',
+                    color: 'white',
                     fontSize: '0.9rem',
                     textTransform: 'none',
                     fontFamily: 'Inter, sans-serif',
                     fontWeight: 400,
                     px: 2,
                     py: 1,
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(10px)',
                     borderRadius: '8px',
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      backgroundColor: 'rgba(26, 95, 122, 0.08)',
-                      color: '#1a5f7a'
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      color: 'white'
                     }
                   }}
                 >
@@ -161,19 +166,20 @@ const Navbar = () => {
                   >
                     <Button
                       sx={{
-                        color: '#1a5f7a',
+                        color: 'white',
                         fontSize: '0.9rem',
                         textTransform: 'none',
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 400,
                         px: 2,
                         py: 1,
-                        backgroundColor: 'transparent',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '8px',
                         transition: 'all 0.3s ease',
                         '&:hover': {
-                          backgroundColor: 'rgba(26, 95, 122, 0.08)',
-                          color: '#1a5f7a'
+                          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                          color: 'white'
                         }
                       }}
                     >
@@ -195,13 +201,13 @@ const Navbar = () => {
                         fontWeight: 500,
                         px: 3,
                         py: 1,
-                        backgroundColor: '#1a5f7a',
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '8px',
                         transition: 'all 0.3s ease',
-                        boxShadow: '0 2px 8px rgba(26, 95, 122, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
                         '&:hover': {
-                          backgroundColor: '#0a4d68',
-                          boxShadow: '0 4px 12px rgba(26, 95, 122, 0.3)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.3)',
                           transform: 'translateY(-1px)'
                         }
                       }}

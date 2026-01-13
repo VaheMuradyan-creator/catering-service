@@ -105,8 +105,27 @@ export default function About() {
       </Box>
 
       {/* Content Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#ffffff' }}>
-        <Container maxWidth="lg">
+      <Box 
+        sx={{ 
+          py: { xs: 8, md: 12 }, 
+          position: 'relative',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+            zIndex: 0
+          }
+        }}
+      >
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
