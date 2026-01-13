@@ -97,9 +97,9 @@ export default function OrderForm() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.4)',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '20px',
                 p: { xs: 4, md: 6 },
                 maxWidth: '800px'
@@ -146,9 +146,9 @@ export default function OrderForm() {
                 component="form"
                 onSubmit={handleSubmit}
                 sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.85)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(26, 95, 122, 0.1)',
+                  border: '1px solid rgba(26, 95, 122, 0.15)',
                   borderRadius: '20px',
                   p: { xs: 4, md: 6 }
                 }}
@@ -164,7 +164,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}
@@ -181,7 +181,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}
@@ -197,7 +197,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}
@@ -215,7 +215,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}
@@ -232,7 +232,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}
@@ -249,7 +249,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       sx={{
                         '& .MuiOutlinedInput-root': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
                           fontFamily: 'Inter, sans-serif'
                         }
                       }}

@@ -54,9 +54,9 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '20px',
               p: { xs: 4, md: 6 },
               maxWidth: '800px'
@@ -134,14 +134,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      border: '1px solid rgba(26, 95, 122, 0.15)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
                       }
                     }}
                   >
@@ -156,14 +156,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      border: '1px solid rgba(26, 95, 122, 0.15)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
                       }
                     }}
                   >
@@ -178,14 +178,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      border: '1px solid rgba(26, 95, 122, 0.15)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
                       }
                     }}
                   >
@@ -209,9 +209,9 @@ export default function Contact() {
                   component="form"
                   onSubmit={handleSubmit}
                   sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.85)',
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(26, 95, 122, 0.1)',
+                    border: '1px solid rgba(26, 95, 122, 0.15)',
                     borderRadius: '20px',
                     p: 4
                   }}
@@ -222,7 +222,7 @@ export default function Contact() {
                     margin="normal"
                     sx={{
                       '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         fontFamily: 'Inter, sans-serif'
                       }
                     }}
@@ -234,7 +234,7 @@ export default function Contact() {
                     margin="normal"
                     sx={{
                       '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         fontFamily: 'Inter, sans-serif'
                       }
                     }}
@@ -247,7 +247,7 @@ export default function Contact() {
                     margin="normal"
                     sx={{
                       '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         fontFamily: 'Inter, sans-serif'
                       }
                     }}

@@ -119,9 +119,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
             sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '20px',
               p: { xs: 4, md: 6 },
               maxWidth: '900px',
@@ -272,9 +272,9 @@ export default function Home() {
                 >
                   <Box
                     sx={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.8)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.1)',
+                      border: '1px solid rgba(26, 95, 122, 0.15)',
                       borderRadius: '16px',
                       textAlign: 'center',
                       py: 4,
@@ -283,7 +283,7 @@ export default function Home() {
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: feature.color,
-                        backgroundColor: 'rgba(255, 255, 255, 0.7)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
                       }
                     }}
                   >
@@ -396,12 +396,12 @@ export default function Home() {
                   <Box
                     sx={{
                       backgroundColor: option.highlight 
-                        ? 'rgba(255, 255, 255, 0.8)' 
-                        : 'rgba(255, 255, 255, 0.6)',
+                        ? 'rgba(255, 255, 255, 0.95)' 
+                        : 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(20px)',
                       border: option.highlight 
                         ? '2px solid #1a5f7a' 
-                        : '1px solid rgba(26, 95, 122, 0.15)',
+                        : '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '20px',
                       height: '100%',
                       position: 'relative',
@@ -409,8 +409,8 @@ export default function Home() {
                       '&:hover': {
                         borderColor: '#1a5f7a',
                         backgroundColor: option.highlight 
-                          ? 'rgba(255, 255, 255, 0.9)' 
-                          : 'rgba(255, 255, 255, 0.75)'
+                          ? 'rgba(255, 255, 255, 0.98)' 
+                          : 'rgba(255, 255, 255, 0.92)'
                       },
                       transition: 'all 0.4s ease'
                     }}
@@ -592,9 +592,9 @@ export default function Home() {
           >
             <Box
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(26, 95, 122, 0.1)',
+                border: '1px solid rgba(26, 95, 122, 0.15)',
                 borderRadius: '20px',
                 p: { xs: 4, md: 6 }
               }}
