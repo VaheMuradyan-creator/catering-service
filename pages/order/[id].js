@@ -12,6 +12,8 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import PrivateRoute from '../../components/PrivateRoute';
 import ParallaxImage from '../../components/ParallaxImage';
+import TubelightNavbar from '../../components/TubelightNavbar';
+import AnimatedButton from '../../components/AnimatedButton';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
@@ -56,6 +58,7 @@ export default function OrderForm() {
   return (
     <PrivateRoute>
       <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+        <TubelightNavbar />
         {/* Hero Section */}
         <Box
           sx={{
@@ -165,9 +168,9 @@ export default function OrderForm() {
                 component="form"
                 onSubmit={handleSubmit}
                 sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(26, 95, 122, 0.15)',
+                  border: '1px solid rgba(26, 95, 122, 0.2)',
                   borderRadius: '20px',
                   p: { xs: 4, md: 6 }
                 }}
@@ -275,30 +278,22 @@ export default function OrderForm() {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <Button
+                    <AnimatedButton
                       type="submit"
-                      variant="outlined"
                       fullWidth
                       sx={{
                         py: 2,
-                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                        backdropFilter: 'blur(10px)',
-                        color: '#1a5f7a',
                         borderColor: '#1a5f7a',
                         borderWidth: '2px',
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 500,
                         borderRadius: '10px',
                         fontSize: '1.1rem',
-                        '&:hover': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                          transform: 'translateY(-2px)'
-                        },
-                        transition: 'all 0.3s ease'
+                        color: '#1a5f7a'
                       }}
                     >
                       Submit Order
-                    </Button>
+                    </AnimatedButton>
                   </Grid>
                 </Grid>
               </Box>

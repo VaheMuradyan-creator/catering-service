@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ParallaxImage from '../components/ParallaxImage';
+import TubelightNavbar from '../components/TubelightNavbar';
+import AnimatedButton from '../components/AnimatedButton';
 
 const packages = [
   {
@@ -99,6 +101,7 @@ export default function Packages() {
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+      <TubelightNavbar />
       {/* Hero Section */}
       <Box
         sx={{
@@ -214,15 +217,15 @@ export default function Packages() {
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '20px',
                       transition: 'all 0.3s ease',
                       overflow: 'hidden',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
                         boxShadow: '0 8px 32px rgba(26, 95, 122, 0.15)'
                       }
                     }}
@@ -314,28 +317,20 @@ export default function Packages() {
                     </CardContent>
                     <Box sx={{ p: 3, pt: 0 }}>
                       <Link href={`/order/${pkg.id}`} passHref legacyBehavior>
-                        <Button
+                        <AnimatedButton
                           fullWidth
-                          variant="outlined"
                           sx={{
-                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                            backdropFilter: 'blur(10px)',
-                            color: '#1a5f7a',
                             borderColor: '#1a5f7a',
                             borderWidth: '2px',
                             fontFamily: 'Inter, sans-serif',
                             fontWeight: 500,
                             borderRadius: '10px',
                             py: 1.5,
-                            '&:hover': {
-                              backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                              transform: 'translateY(-2px)'
-                            },
-                            transition: 'all 0.3s ease'
+                            color: '#1a5f7a'
                           }}
                         >
                           Select Package
-                        </Button>
+                        </AnimatedButton>
                       </Link>
                     </Box>
                   </Card>

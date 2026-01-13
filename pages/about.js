@@ -1,6 +1,7 @@
 import { Container, Typography, Box, Grid, Card, CardContent, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import ParallaxImage from '../components/ParallaxImage';
+import TubelightNavbar from '../components/TubelightNavbar';
 
 export default function About() {
   const teamMembers = [
@@ -26,6 +27,7 @@ export default function About() {
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+      <TubelightNavbar />
       {/* Hero Section */}
       <Box
         sx={{
@@ -178,9 +180,9 @@ export default function About() {
                 >
                   <Card
                     sx={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '20px',
                       textAlign: 'center',
                       p: 4,
@@ -188,7 +190,7 @@ export default function About() {
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)'
                       }
                     }}
                   >

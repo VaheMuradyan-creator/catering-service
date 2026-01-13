@@ -1,6 +1,8 @@
 import { Container, Typography, Box, Grid, TextField, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import ParallaxImage from '../components/ParallaxImage';
+import TubelightNavbar from '../components/TubelightNavbar';
+import AnimatedButton from '../components/AnimatedButton';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -13,6 +15,7 @@ export default function Contact() {
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+      <TubelightNavbar />
       {/* Hero Section */}
       <Box
         sx={{
@@ -153,14 +156,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)'
                       }
                     }}
                   >
@@ -175,14 +178,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)'
                       }
                     }}
                   >
@@ -197,14 +200,14 @@ export default function Contact() {
                       alignItems: 'center',
                       mb: 3,
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: '#1a5f7a',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)'
                       }
                     }}
                   >
@@ -228,9 +231,9 @@ export default function Contact() {
                   component="form"
                   onSubmit={handleSubmit}
                   sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(26, 95, 122, 0.15)',
+                    border: '1px solid rgba(26, 95, 122, 0.2)',
                     borderRadius: '20px',
                     p: 4
                   }}
@@ -271,30 +274,22 @@ export default function Contact() {
                       }
                     }}
                   />
-                  <Button
+                  <AnimatedButton
                     type="submit"
-                    variant="outlined"
                     fullWidth
                     sx={{
                       mt: 3,
                       py: 1.5,
-                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                      backdropFilter: 'blur(10px)',
-                      color: '#1a5f7a',
                       borderColor: '#1a5f7a',
                       borderWidth: '2px',
                       fontFamily: 'Inter, sans-serif',
                       fontWeight: 500,
                       borderRadius: '10px',
-                      '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                        transform: 'translateY(-2px)'
-                      },
-                      transition: 'all 0.3s ease'
+                      color: '#1a5f7a'
                     }}
                   >
                     Send Message
-                  </Button>
+                  </AnimatedButton>
                 </Box>
               </motion.div>
             </Grid>
