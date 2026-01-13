@@ -7,23 +7,24 @@ import '../styles/globals.css';
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
       main: '#d4af37', 
       dark: '#b4941f',
       light: '#e4cf77'
     },
     secondary: {
-      main: '#1a1a1a', 
-      light: '#333333',
-      dark: '#000000'
+      main: '#0a4d68', 
+      light: '#1a5f7a',
+      dark: '#0a1929'
     },
     background: {
-      default: '#ffffff',
-      paper: '#f8f8f8'
+      default: '#0a1929',
+      paper: '#0a4d68'
     },
     text: {
-      primary: '#333333',
-      secondary: '#666666'
+      primary: '#ffffff',
+      secondary: 'rgba(255, 255, 255, 0.7)'
     }
   },
   typography: {
