@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, Button, Box, Grid, Card, CardContent, Divider, Chip, Paper } from '@mui/material';
+import { Container, Typography, Button, Box, Grid, Card, CardContent, Divider, Chip } from '@mui/material';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ParallaxImage from '../components/ParallaxImage';
-import FloatingBoat from '../components/FloatingBoat';
 import { Sailing, Restaurant, Diamond, Waves, Anchor, LocalDining, WineBar } from '@mui/icons-material';
 
 export default function Home() {
@@ -99,11 +98,6 @@ export default function Home() {
           }}
         />
 
-        {/* Floating Boat Animation */}
-        <FloatingBoat 
-          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
-          alt="Luxury Yacht"
-        />
 
         {/* Glassmorphism Hero Content */}
         <Container
@@ -114,18 +108,17 @@ export default function Home() {
             textAlign: 'center'
           }}
         >
-          <Paper
+          <Box
             component={motion.div}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
             sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              borderRadius: '24px',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
               p: { xs: 4, md: 6 },
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
               maxWidth: '900px',
               mx: 'auto'
             }}
@@ -136,10 +129,9 @@ export default function Home() {
                 variant="h1"
                 sx={{
                   fontSize: { xs: '3rem', md: '5.5rem' },
-                  fontWeight: 300,
-                  fontFamily: '"Playfair Display", serif',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  fontFamily: 'Inter, sans-serif',
+                  letterSpacing: '-0.02em',
                   color: '#1a5f7a',
                   mb: 2
                 }}
@@ -149,31 +141,30 @@ export default function Home() {
             </Box>
             <Typography
               variant="h2"
-              sx={{
-                fontSize: { xs: '2rem', md: '3.5rem' },
-                fontWeight: 400,
-                fontFamily: '"Playfair Display", serif',
-                letterSpacing: '0.15em',
-                mb: 3,
-                color: '#1a5f7a',
-                textTransform: 'uppercase'
-              }}
+                sx={{
+                  fontSize: { xs: '2rem', md: '3.5rem' },
+                  fontWeight: 500,
+                  fontFamily: 'Inter, sans-serif',
+                  letterSpacing: '-0.02em',
+                  mb: 3,
+                  color: '#1a5f7a'
+                }}
             >
               Culinary Excellence
             </Typography>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: { xs: '1.1rem', md: '1.5rem' },
-                fontFamily: '"Cormorant Garamond", serif',
-                fontWeight: 300,
-                letterSpacing: '0.05em',
-                mb: 6,
-                color: '#2c3e50',
-                maxWidth: '800px',
-                mx: 'auto',
-                lineHeight: 1.8
-              }}
+                sx={{
+                  fontSize: { xs: '1.1rem', md: '1.3rem' },
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '-0.01em',
+                  mb: 6,
+                  color: '#2c3e50',
+                  maxWidth: '800px',
+                  mx: 'auto',
+                  lineHeight: 1.7
+                }}
             >
               Where the ocean meets extraordinary cuisine. Experience luxury catering aboard private yachts, 
               creating unforgettable moments on the open sea.
@@ -192,9 +183,8 @@ export default function Home() {
                     backgroundColor: '#1a5f7a',
                     color: 'white',
                     fontSize: '1.1rem',
-                    fontFamily: '"Playfair Display", serif',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
+                    fontFamily: 'Inter, sans-serif',
+                    letterSpacing: '-0.01em',
                     borderRadius: '12px',
                     boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
                     '&:hover': {
@@ -209,7 +199,7 @@ export default function Home() {
                 </Button>
               </Link>
             </motion.div>
-          </Paper>
+          </Box>
         </Container>
 
         {/* Scroll Indicator */}
@@ -249,12 +239,11 @@ export default function Home() {
               sx={{
                 textAlign: 'center',
                 mb: 8,
-                fontFamily: '"Playfair Display", serif',
+                fontFamily: 'Inter, sans-serif',
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
                 color: '#1a5f7a',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 300
+                letterSpacing: '-0.02em',
+                fontWeight: 600
               }}
             >
               Unparalleled Excellence
@@ -276,21 +265,20 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
                 >
-                  <Paper
+                  <Box
                     sx={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.5)',
                       backdropFilter: 'blur(10px)',
                       border: '1px solid rgba(26, 95, 122, 0.1)',
-                      borderRadius: '20px',
+                      borderRadius: '16px',
                       textAlign: 'center',
                       py: 4,
                       px: 3,
                       height: '100%',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                       '&:hover': {
-                        boxShadow: '0 8px 32px rgba(26, 95, 122, 0.15)',
-                        borderColor: feature.color
+                        borderColor: feature.color,
+                        backgroundColor: 'rgba(255, 255, 255, 0.7)'
                       }
                     }}
                   >
@@ -300,7 +288,7 @@ export default function Home() {
                     <Typography
                       variant="h6"
                       sx={{
-                        fontFamily: '"Playfair Display", serif',
+                        fontFamily: 'Inter, sans-serif',
                         color: '#1a5f7a',
                         mb: 1,
                         fontWeight: 400
@@ -312,13 +300,13 @@ export default function Home() {
                       variant="body2"
                       sx={{
                         color: '#6b6b6b',
-                        fontFamily: '"Cormorant Garamond", serif',
+                        fontFamily: 'Inter, sans-serif',
                         fontSize: '1.1rem'
                       }}
                     >
                       {feature.desc}
                     </Typography>
-                  </Paper>
+                  </Box>
                 </motion.div>
               </Grid>
             ))}
@@ -366,11 +354,10 @@ export default function Home() {
               sx={{
                 textAlign: 'center',
                 mb: 2,
-                fontFamily: '"Playfair Display", serif',
+                fontFamily: 'Inter, sans-serif',
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
                 color: '#1a5f7a',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
+                letterSpacing: '-0.02em',
                 fontWeight: 300
               }}
             >
@@ -381,7 +368,7 @@ export default function Home() {
               sx={{
                 textAlign: 'center',
                 mb: 8,
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: 'Inter, sans-serif',
                 color: '#6b6b6b',
                 fontSize: '1.3rem',
                 fontWeight: 300
@@ -401,25 +388,24 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <Paper
+                  <Box
                     sx={{
                       backgroundColor: option.highlight 
-                        ? 'rgba(255, 255, 255, 0.9)' 
-                        : 'rgba(255, 255, 255, 0.7)',
+                        ? 'rgba(255, 255, 255, 0.8)' 
+                        : 'rgba(255, 255, 255, 0.6)',
                       backdropFilter: 'blur(20px)',
                       border: option.highlight 
                         ? '2px solid #1a5f7a' 
-                        : '1px solid rgba(26, 95, 122, 0.2)',
-                      borderRadius: '24px',
+                        : '1px solid rgba(26, 95, 122, 0.15)',
+                      borderRadius: '20px',
                       height: '100%',
                       position: 'relative',
                       overflow: 'hidden',
-                      boxShadow: option.highlight 
-                        ? '0 12px 40px rgba(26, 95, 122, 0.2)' 
-                        : '0 8px 24px rgba(0, 0, 0, 0.1)',
                       '&:hover': {
-                        boxShadow: '0 16px 48px rgba(26, 95, 122, 0.25)',
-                        borderColor: '#1a5f7a'
+                        borderColor: '#1a5f7a',
+                        backgroundColor: option.highlight 
+                          ? 'rgba(255, 255, 255, 0.9)' 
+                          : 'rgba(255, 255, 255, 0.75)'
                       },
                       transition: 'all 0.4s ease'
                     }}
@@ -433,7 +419,7 @@ export default function Home() {
                           right: 20,
                           backgroundColor: '#1a5f7a',
                           color: 'white',
-                          fontFamily: '"Playfair Display", serif',
+                          fontFamily: 'Inter, sans-serif',
                           fontWeight: 600,
                           zIndex: 1,
                           borderRadius: '12px'
@@ -446,12 +432,12 @@ export default function Home() {
                         <Typography
                           variant="h4"
                           sx={{
-                            fontFamily: '"Playfair Display", serif',
+                            fontFamily: 'Inter, sans-serif',
                             color: option.color,
                             mt: 2,
                             mb: 1,
                             fontWeight: 400,
-                            letterSpacing: '0.1em',
+                            letterSpacing: '-0.02em',
                             textTransform: 'uppercase'
                           }}
                         >
@@ -461,7 +447,7 @@ export default function Home() {
                           <Typography
                             variant="h3"
                             sx={{
-                              fontFamily: '"Playfair Display", serif',
+                              fontFamily: 'Inter, sans-serif',
                               color: option.color,
                               fontWeight: 300,
                               display: 'inline'
@@ -472,7 +458,7 @@ export default function Home() {
                           <Typography
                             variant="body1"
                             sx={{
-                              fontFamily: '"Cormorant Garamond", serif',
+                              fontFamily: 'Inter, sans-serif',
                               color: '#6b6b6b',
                               ml: 1,
                               display: 'inline',
@@ -500,7 +486,7 @@ export default function Home() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 mb: 2.5,
-                                fontFamily: '"Cormorant Garamond", serif',
+                                fontFamily: 'Inter, sans-serif',
                                 fontSize: '1.15rem'
                               }}
                             >
@@ -517,7 +503,7 @@ export default function Home() {
                               <Typography
                                 sx={{
                                   color: '#2c3e50',
-                                  fontFamily: '"Cormorant Garamond", serif',
+                                  fontFamily: 'Inter, sans-serif',
                                   fontSize: '1.15rem'
                                 }}
                               >
@@ -540,9 +526,8 @@ export default function Home() {
                               color: option.highlight ? 'white' : option.color,
                               borderColor: option.color,
                               borderWidth: '2px',
-                              fontFamily: '"Playfair Display", serif',
-                              letterSpacing: '0.1em',
-                              textTransform: 'uppercase',
+                              fontFamily: 'Inter, sans-serif',
+                              letterSpacing: '-0.02em',
                               fontSize: '1rem',
                               borderRadius: '12px',
                               '&:hover': {
@@ -560,7 +545,7 @@ export default function Home() {
                         </Link>
                       </Box>
                     </CardContent>
-                  </Paper>
+                  </Box>
                 </motion.div>
               </Grid>
             ))}
@@ -600,25 +585,24 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center' }}
           >
-            <Paper
+            <Box
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
                 backdropFilter: 'blur(20px)',
                 border: '1px solid rgba(26, 95, 122, 0.1)',
-                borderRadius: '24px',
-                p: { xs: 4, md: 6 },
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)'
+                borderRadius: '20px',
+                p: { xs: 4, md: 6 }
               }}
             >
               <Typography
                 variant="h2"
                 sx={{
-                  fontFamily: '"Playfair Display", serif',
+                  fontFamily: 'Inter, sans-serif',
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                   color: '#1a5f7a',
                   mb: 3,
-                  fontWeight: 300,
-                  letterSpacing: '0.1em'
+                  fontWeight: 500,
+                  letterSpacing: '-0.02em'
                 }}
               >
                 Ready to Set Sail?
@@ -626,12 +610,12 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: '"Cormorant Garamond", serif',
+                  fontFamily: 'Inter, sans-serif',
                   color: '#6b6b6b',
                   mb: 6,
                   fontSize: '1.3rem',
-                  fontWeight: 300,
-                  lineHeight: 1.8
+                  fontWeight: 400,
+                  lineHeight: 1.7
                 }}
               >
                 Contact us to begin planning your extraordinary maritime dining experience. 
@@ -647,9 +631,8 @@ export default function Home() {
                     backgroundColor: '#1a5f7a',
                     color: 'white',
                     fontSize: '1.1rem',
-                    fontFamily: '"Playfair Display", serif',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
+                    fontFamily: 'Inter, sans-serif',
+                    letterSpacing: '-0.01em',
                     borderRadius: '12px',
                     boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
                     '&:hover': {
@@ -663,7 +646,7 @@ export default function Home() {
                   Schedule Consultation
                 </Button>
               </Link>
-            </Paper>
+            </Box>
           </motion.div>
         </Container>
       </Box>

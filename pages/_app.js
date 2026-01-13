@@ -28,7 +28,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: '"Playfair Display", "Roboto", "Arial", sans-serif',
+    fontFamily: '"Inter", "Roboto", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
       letterSpacing: 1

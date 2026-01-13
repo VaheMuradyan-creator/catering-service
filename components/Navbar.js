@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Button, Container, Box } from '@mui/material';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/router';
 
@@ -25,93 +26,189 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const buttonStyle = {
-    color: 'black',
-    mx: 2,
-    fontFamily: 'Playfair Display, serif',
-    transition: 'all 0.3s ease',
-    '&:hover': {
-      backgroundColor: 'black',
-      color: 'white'
-    }
-  };
-
   const handleLogout = () => {
     logout();
     router.push('/');
   };
 
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' }
+  ];
+
   return (
     <AppBar 
       position="fixed" 
       sx={{
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        backdropFilter: 'blur(20px)',
         boxShadow: 'none',
+        borderBottom: '1px solid rgba(26, 95, 122, 0.1)',
         transform: visible ? 'translateY(0)' : 'translateY(-100%)',
-        transition: 'transform 0.3s ease-in-out'
+        transition: 'transform 0.3s ease-in-out',
+        height: '60px'
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar sx={{ 
-          justifyContent: 'space-between', 
-          py: 1,
-          display: 'flex',
-          width: '100%'
-        }}>
+        <Toolbar 
+          sx={{ 
+            justifyContent: 'space-between', 
+            py: 0,
+            minHeight: '60px !important',
+            height: '60px',
+            display: 'flex',
+            width: '100%'
+          }}
+        >
           <Box sx={{ flex: 1 }}>
             <Link href="/" passHref legacyBehavior>
-              <Button
-                sx={{
-                  ...buttonStyle,
-                  fontSize: '1.5rem',
-                  textTransform: 'none',
-                  ml: 0
-                }}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Catering Service
-              </Button>
+                <Button
+                  sx={{
+                    color: '#1a5f7a',
+                    fontSize: '1.1rem',
+                    textTransform: 'none',
+                    ml: 0,
+                    fontWeight: 500,
+                    fontFamily: 'Inter, sans-serif',
+                    letterSpacing: '-0.02em',
+                    px: 2,
+                    py: 1,
+                    '&:hover': {
+                      backgroundColor: 'transparent'
+                    }
+                  }}
+                >
+                  Maritime
+                </Button>
+              </motion.div>
             </Link>
           </Box>
           
           <Box sx={{ 
-            flex: 1,
             display: 'flex',
             justifyContent: 'flex-end',
-            gap: 2
+            alignItems: 'center',
+            gap: 1
           }}>
-            <Link href="/" passHref legacyBehavior>
-              <Button sx={buttonStyle}>
-                Home
-              </Button>
-            </Link>
-            <Link href="/about" passHref legacyBehavior>
-              <Button sx={buttonStyle}>
-                About Us
-              </Button>
-            </Link>
-            <Link href="/contact" passHref legacyBehavior>
-              <Button sx={buttonStyle}>
-                Contact
-              </Button>
-            </Link>
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} passHref legacyBehavior>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    sx={{
+                      color: '#1a5f7a',
+                      fontSize: '0.9rem',
+                      textTransform: 'none',
+                      fontFamily: 'Inter, sans-serif',
+                      fontWeight: 400,
+                      letterSpacing: '-0.01em',
+                      px: 2,
+                      py: 1,
+                      backgroundColor: 'transparent',
+                      borderRadius: '8px',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        backgroundColor: 'rgba(26, 95, 122, 0.08)',
+                        color: '#1a5f7a'
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                </motion.div>
+              </Link>
+            ))}
             {user ? (
-              <Button 
-                onClick={handleLogout}
-                sx={buttonStyle}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Logout
-              </Button>
+                <Button 
+                  onClick={handleLogout}
+                  sx={{
+                    color: '#1a5f7a',
+                    fontSize: '0.9rem',
+                    textTransform: 'none',
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 400,
+                    px: 2,
+                    py: 1,
+                    backgroundColor: 'transparent',
+                    borderRadius: '8px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: 'rgba(26, 95, 122, 0.08)',
+                      color: '#1a5f7a'
+                    }
+                  }}
+                >
+                  Logout
+                </Button>
+              </motion.div>
             ) : (
               <>
                 <Link href="/login" passHref legacyBehavior>
-                  <Button sx={buttonStyle}>
-                    Sign In
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      sx={{
+                        color: '#1a5f7a',
+                        fontSize: '0.9rem',
+                        textTransform: 'none',
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 400,
+                        px: 2,
+                        py: 1,
+                        backgroundColor: 'transparent',
+                        borderRadius: '8px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          backgroundColor: 'rgba(26, 95, 122, 0.08)',
+                          color: '#1a5f7a'
+                        }
+                      }}
+                    >
+                      Sign In
+                    </Button>
+                  </motion.div>
                 </Link>
                 <Link href="/register" passHref legacyBehavior>
-                  <Button sx={buttonStyle}>
-                    Sign Up
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      sx={{
+                        color: 'white',
+                        fontSize: '0.9rem',
+                        textTransform: 'none',
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 500,
+                        px: 3,
+                        py: 1,
+                        backgroundColor: '#1a5f7a',
+                        borderRadius: '8px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 2px 8px rgba(26, 95, 122, 0.2)',
+                        '&:hover': {
+                          backgroundColor: '#0a4d68',
+                          boxShadow: '0 4px 12px rgba(26, 95, 122, 0.3)',
+                          transform: 'translateY(-1px)'
+                        }
+                      }}
+                    >
+                      Sign Up
+                    </Button>
+                  </motion.div>
                 </Link>
               </>
             )}
