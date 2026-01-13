@@ -2,7 +2,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthProvider } from '../context/AuthContext';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar'; // Using TubelightNavbar instead
 import '../styles/globals.css';
 
 const theme = createTheme({
@@ -62,7 +62,6 @@ export default function App({ Component, pageProps }) {
       <AuthProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Navbar />
           <Component {...pageProps} />
         </ThemeProvider>
       </AuthProvider>

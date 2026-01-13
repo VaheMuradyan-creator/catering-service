@@ -3,6 +3,9 @@ import { Container, Typography, Button, Box, Grid, Card, CardContent, Divider, C
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ParallaxImage from '../components/ParallaxImage';
+import TubelightNavbar from '../components/TubelightNavbar';
+import AnimatedButton from '../components/AnimatedButton';
+import ScrollExpandHero from '../components/ScrollExpandHero';
 import { Sailing, Restaurant, Diamond, Waves, Anchor, LocalDining, WineBar } from '@mui/icons-material';
 
 export default function Home() {
@@ -64,164 +67,64 @@ export default function Home() {
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa' }}>
-      {/* Hero Section with Real Beach Image */}
-      <Box
-        component={motion.div}
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        sx={{
-          height: '100vh',
-          width: '100%',
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden'
-        }}
+      <TubelightNavbar />
+      
+      {/* Scroll Expansion Hero */}
+      <ScrollExpandHero
+        mediaType="image"
+        mediaSrc="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1280&q=80"
+        bgImageSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+        title="Maritime Culinary Excellence"
+        date="Luxury Catering"
+        scrollToExpand="Scroll to Explore"
+        textBlend={false}
       >
-        {/* Parallax Beach Background */}
-        <ParallaxImage 
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
-          alt="Luxury Beach"
-          speed={0.3}
-        />
-        
-        {/* Overlay Gradient */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(26,95,122,0.4) 100%)',
-            zIndex: 2
-          }}
-        />
-
-
-        {/* Glassmorphism Hero Content */}
-        <Container
-          maxWidth="lg"
-          sx={{
-            position: 'relative',
-            zIndex: 4,
-            textAlign: 'center',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pt: { xs: 8, md: 0 }
-          }}
-        >
-          <Box
-            component={motion.div}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              borderRadius: '20px',
-              p: { xs: 4, md: 6 },
-              maxWidth: '900px',
-              mx: 'auto'
-            }}
-          >
-            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
-              <Anchor sx={{ fontSize: 48, color: '#1a5f7a' }} />
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: '3rem', md: '5.5rem' },
-                  fontWeight: 600,
-                  fontFamily: 'Inter, sans-serif',
-                  letterSpacing: '-0.02em',
-                  color: '#1a5f7a',
-                  mb: 2
-                }}
-              >
-                Maritime
-              </Typography>
-            </Box>
+        <Container maxWidth="lg">
+          <Box sx={{ maxWidth: '800px', mx: 'auto', textAlign: 'center', mb: 6 }}>
             <Typography
               variant="h2"
-                sx={{
-                  fontSize: { xs: '2rem', md: '3.5rem' },
-                  fontWeight: 500,
-                  fontFamily: 'Inter, sans-serif',
-                  letterSpacing: '-0.02em',
-                  mb: 3,
-                  color: '#1a5f7a'
-                }}
+              sx={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 600,
+                color: '#1a5f7a',
+                mb: 3
+              }}
             >
-              Culinary Excellence
+              Where the Ocean Meets Extraordinary Cuisine
             </Typography>
             <Typography
-              variant="h6"
-                sx={{
-                  fontSize: { xs: '1.1rem', md: '1.3rem' },
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 400,
-                  letterSpacing: '-0.01em',
-                  mb: 6,
-                  color: '#2c3e50',
-                  maxWidth: '800px',
-                  mx: 'auto',
-                  lineHeight: 1.7
-                }}
+              variant="body1"
+              sx={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '1.1rem',
+                color: '#6b6b6b',
+                lineHeight: 1.8,
+                mb: 4
+              }}
             >
-              Where the ocean meets extraordinary cuisine. Experience luxury catering aboard private yachts, 
-              creating unforgettable moments on the open sea.
+              Experience luxury catering aboard private yachts, creating unforgettable moments on the open sea. 
+              Our commitment to excellence ensures every detail is meticulously curated, from gourmet menus to impeccable service.
             </Typography>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link href="/packages" passHref legacyBehavior>
-                <Button
-                  variant="contained"
-                  size="large"
-                  sx={{
-                    py: 2.5,
-                    px: 6,
-                    backgroundColor: '#1a5f7a',
-                    color: 'white',
-                    fontSize: '1.1rem',
-                    fontFamily: 'Inter, sans-serif',
-                    letterSpacing: '-0.01em',
-                    borderRadius: '12px',
-                    boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
-                    '&:hover': {
-                      backgroundColor: '#0a4d68',
-                      boxShadow: '0 12px 32px rgba(26, 95, 122, 0.4)',
-                      transform: 'translateY(-2px)'
-                    },
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  Explore Our Services
-                </Button>
-              </Link>
-            </motion.div>
+            <Link href="/packages" passHref legacyBehavior>
+              <AnimatedButton
+                size="large"
+                sx={{
+                  py: 2.5,
+                  px: 6,
+                  fontSize: '1rem',
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: 500,
+                  letterSpacing: '-0.01em',
+                  borderRadius: '10px'
+                }}
+              >
+                Explore Our Services
+              </AnimatedButton>
+            </Link>
           </Box>
         </Container>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 5
-          }}
-        >
-          <Waves sx={{ color: '#1a5f7a', fontSize: 32 }} />
-        </motion.div>
-      </Box>
+      </ScrollExpandHero>
 
       {/* Luxury Features Section - Light & Transparent */}
       <Box
@@ -285,9 +188,9 @@ export default function Home() {
                 >
                   <Box
                     sx={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(26, 95, 122, 0.15)',
+                      border: '1px solid rgba(26, 95, 122, 0.2)',
                       borderRadius: '16px',
                       textAlign: 'center',
                       py: 4,
@@ -296,7 +199,7 @@ export default function Home() {
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         borderColor: feature.color,
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)'
                       }
                     }}
                   >
@@ -338,7 +241,7 @@ export default function Home() {
           py: { xs: 10, md: 15 },
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -404,12 +307,12 @@ export default function Home() {
                   <Box
                     sx={{
                       backgroundColor: option.highlight 
-                        ? 'rgba(255, 255, 255, 0.95)' 
-                        : 'rgba(255, 255, 255, 0.85)',
+                        ? 'rgba(255, 255, 255, 0.4)' 
+                        : 'rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(20px)',
                       border: option.highlight 
                         ? '2px solid #1a5f7a' 
-                        : '1px solid rgba(26, 95, 122, 0.2)',
+                        : '1px solid rgba(26, 95, 122, 0.3)',
                       borderRadius: '20px',
                       height: '100%',
                       position: 'relative',
@@ -417,8 +320,8 @@ export default function Home() {
                       '&:hover': {
                         borderColor: '#1a5f7a',
                         backgroundColor: option.highlight 
-                          ? 'rgba(255, 255, 255, 0.98)' 
-                          : 'rgba(255, 255, 255, 0.92)'
+                          ? 'rgba(255, 255, 255, 0.5)' 
+                          : 'rgba(255, 255, 255, 0.4)'
                       },
                       transition: 'all 0.4s ease'
                     }}
@@ -529,32 +432,22 @@ export default function Home() {
 
                       <Box sx={{ mt: 5, textAlign: 'center' }}>
                         <Link href={`/order/${option.type === 'boat' ? 'boat' : 'regular'}`} passHref legacyBehavior>
-                          <Button
-                            variant={option.highlight ? 'contained' : 'outlined'}
+                          <AnimatedButton
                             fullWidth
                             sx={{
                               py: 2,
                               px: 4,
-                              backgroundColor: option.highlight ? option.color : 'transparent',
-                              color: option.highlight ? 'white' : option.color,
                               borderColor: option.color,
                               borderWidth: '2px',
                               fontFamily: 'Inter, sans-serif',
                               letterSpacing: '-0.02em',
                               fontSize: '1rem',
                               borderRadius: '12px',
-                              '&:hover': {
-                                backgroundColor: option.color,
-                                color: 'white',
-                                borderColor: option.color,
-                                transform: 'translateY(-2px)',
-                                boxShadow: `0 8px 24px ${option.color}40`
-                              },
-                              transition: 'all 0.3s ease'
+                              color: option.color
                             }}
                           >
                             Select Package
-                          </Button>
+                          </AnimatedButton>
                         </Link>
                       </Box>
                     </CardContent>
@@ -634,29 +527,20 @@ export default function Home() {
                 Our team of experts will craft a bespoke event that exceeds all expectations.
               </Typography>
               <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  variant="contained"
+                <AnimatedButton
                   size="large"
                   sx={{
                     py: 2.5,
                     px: 6,
-                    backgroundColor: '#1a5f7a',
-                    color: 'white',
                     fontSize: '1.1rem',
                     fontFamily: 'Inter, sans-serif',
+                    fontWeight: 500,
                     letterSpacing: '-0.01em',
-                    borderRadius: '12px',
-                    boxShadow: '0 8px 24px rgba(26, 95, 122, 0.3)',
-                    '&:hover': {
-                      backgroundColor: '#0a4d68',
-                      boxShadow: '0 12px 32px rgba(26, 95, 122, 0.4)',
-                      transform: 'translateY(-2px)'
-                    },
-                    transition: 'all 0.3s ease'
+                    borderRadius: '10px'
                   }}
                 >
                   Schedule Consultation
-                </Button>
+                </AnimatedButton>
               </Link>
             </Box>
           </motion.div>
