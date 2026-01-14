@@ -34,7 +34,9 @@ export default function ScrollExpandHero({
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
         e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0015;
+        // Accelerate scroll after 50% progress
+        const scrollMultiplier = scrollProgress < 0.5 ? 0.0015 : 0.0045; // 3x faster after 50%
+        const scrollDelta = e.deltaY * scrollMultiplier;
         const newProgress = Math.min(
           Math.max(scrollProgress + scrollDelta, 0),
           1
@@ -65,7 +67,9 @@ export default function ScrollExpandHero({
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
         e.preventDefault();
-        const scrollFactor = deltaY < 0 ? 0.012 : 0.008;
+        // Accelerate scroll after 50% progress for touch
+        const baseFactor = deltaY < 0 ? 0.012 : 0.008;
+        const scrollFactor = scrollProgress < 0.5 ? baseFactor : baseFactor * 3; // 3x faster after 50%
         const scrollDelta = deltaY * scrollFactor;
         const newProgress = Math.min(
           Math.max(scrollProgress + scrollDelta, 0),
@@ -150,7 +154,7 @@ export default function ScrollExpandHero({
           minHeight: '100vh'
         }}
       >
-        {/* Background Image */}
+        {/* Original Background Image - Fades out */}
         <motion.div
           style={{
             position: 'absolute',
@@ -178,6 +182,33 @@ export default function ScrollExpandHero({
               position: 'absolute',
               inset: 0,
               backgroundColor: 'rgba(0, 0, 0, 0.1)'
+            }}
+          />
+        </motion.div>
+
+        {/* Miami Yacht Image - Appears after first image fades out, continues as background */}
+        <motion.div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 0,
+            height: '100vh',
+            width: '100vw'
+          }}
+          animate={{
+            opacity: scrollProgress > 0.3 ? 1 : Math.min(1, (scrollProgress - 0.3) * 1.43) // Fades in after 30% scroll, stays at 1
+          }}
+          transition={{ duration: 0.2 }}
+        >
+          <Box
+            component="img"
+            src="/miami-bayside-landscape-yacht.avif"
+            alt="Miami Yacht Background"
+            sx={{
+              width: '100vw',
+              height: '100vh',
+              objectFit: 'cover',
+              objectPosition: 'center'
             }}
           />
         </motion.div>
@@ -281,41 +312,72 @@ export default function ScrollExpandHero({
                 </Box>
               )}
 
-              <Box
-                sx={{
+              {/* Text Overlay on Image - No grey box, just text */}
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  textAlign: 'center',
-                  position: 'relative',
+                  justifyContent: 'center',
                   zIndex: 10,
-                  mt: 2
+                  padding: '2rem'
                 }}
+                animate={{
+                  opacity: scrollProgress < 0.4 ? Math.max(0, (scrollProgress - 0.2) * 5) : 1, // Starts fading in at 0.2, fully visible at 0.4
+                  scale: scrollProgress < 0.3 ? 1 : scrollProgress < 0.5 ? Math.max(0.9, 1 - (scrollProgress - 0.3) * 0.5) : 0.9 // Shrinks until 0.5, then stops at 0.9 scale
+                }}
+                transition={{ duration: 0.1 }}
               >
                 {date && (
                   <Typography
                     sx={{
-                      fontSize: '1.5rem',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      transform: `translateX(-${textTranslateX}vw)`
+                      fontSize: { xs: '1rem', md: '1.5rem' },
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      fontWeight: 600,
+                      mb: 2,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      fontFamily: 'Inter, sans-serif',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.7)',
+                      whiteSpace: 'nowrap'
                     }}
                   >
                     {date}
                   </Typography>
                 )}
+                <Typography
+                  sx={{
+                    fontSize: { xs: '1.5rem', md: '2.5rem', lg: '3rem' },
+                    color: 'rgba(255, 255, 255, 0.98)',
+                    fontWeight: 700,
+                    mb: 3,
+                    fontFamily: 'Inter, sans-serif',
+                    textShadow: '0 2px 15px rgba(0,0,0,0.7)',
+                    lineHeight: 1.2,
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  {title || 'Maritime Culinary Excellence'}
+                </Typography>
                 {scrollToExpand && (
                   <Typography
                     sx={{
                       color: 'rgba(255, 255, 255, 0.9)',
                       fontWeight: 500,
+                      fontSize: { xs: '0.9rem', md: '1.1rem' },
                       textAlign: 'center',
-                      transform: `translateX(${textTranslateX}vw)`
+                      fontFamily: 'Inter, sans-serif',
+                      textShadow: '0 1px 5px rgba(0,0,0,0.7)',
+                      whiteSpace: 'nowrap'
                     }}
                   >
-                    {scrollToExpand}
+                    ↓ {scrollToExpand} ↓
                   </Typography>
                 )}
-              </Box>
+              </motion.div>
             </Box>
 
             {/* Title Text */}
@@ -338,9 +400,10 @@ export default function ScrollExpandHero({
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
                   fontWeight: 700,
-                  color: 'rgba(255, 255, 255, 0.95)',
+                  color: '#ffffff',
                   transform: `translateX(-${textTranslateX}vw)`,
-                  fontFamily: 'Inter, sans-serif'
+                  fontFamily: 'Inter, sans-serif',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                 }}
               >
                 {firstWord}
@@ -351,9 +414,10 @@ export default function ScrollExpandHero({
                   fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
                   fontWeight: 700,
                   textAlign: 'center',
-                  color: 'rgba(255, 255, 255, 0.95)',
+                  color: '#ffffff',
                   transform: `translateX(${textTranslateX}vw)`,
-                  fontFamily: 'Inter, sans-serif'
+                  fontFamily: 'Inter, sans-serif',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                 }}
               >
                 {restOfTitle}

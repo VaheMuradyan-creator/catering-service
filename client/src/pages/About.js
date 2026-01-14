@@ -30,7 +30,7 @@ const About = () => {
       <Box
         sx={{
           height: '60vh',
-          backgroundImage: 'url("/about-hero.jpg")',
+          backgroundImage: 'url("/pexels-adriendrj-33980501.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative',
@@ -93,7 +93,7 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <Box
               component="img"
-              src="/mission.jpg"
+              src="/pexels-asadphoto-11340077.jpg"
               alt="Our Mission"
               sx={{
                 width: '100%',

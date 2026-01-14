@@ -102,7 +102,7 @@ const Package = ({ title, basePrice, servings, onAddToCart }) => {
     >
       <Box
         component="img"
-        src={title.includes("10") ? "/package-10.jpg" : "/package-15.jpg"}
+        src={title.includes("10") ? "/pexels-diego-f-parra-33199-843633.jpg" : "/pexels-snapwire-6934.jpg"}
         alt={title}
         sx={{
           width: '100%',

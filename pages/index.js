@@ -27,7 +27,7 @@ export default function Home() {
       type: 'boat',
       title: 'Luxury Boat Catering',
       icon: <Sailing sx={{ fontSize: 48, color: '#1a5f7a' }} />,
-      price: 'From $150',
+      price: 'From $260',
       perPerson: 'per person',
       features: [
         'Private yacht charter',
@@ -47,7 +47,7 @@ export default function Home() {
       type: 'regular',
       title: 'Traditional Catering',
       icon: <Restaurant sx={{ fontSize: 48, color: '#8b7355' }} />,
-      price: 'From $75',
+      price: 'From $150',
       perPerson: 'per person',
       features: [
         'Venue-based service',
@@ -72,8 +72,8 @@ export default function Home() {
       {/* Scroll Expansion Hero */}
       <ScrollExpandHero
         mediaType="image"
-        mediaSrc="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1280&q=80"
-        bgImageSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+        mediaSrc="/pexels-asadphoto-14923413.jpg"
+        bgImageSrc="/pexels-adriendrj-33980501.jpg"
         title="Maritime Culinary Excellence"
         date="Luxury Catering"
         scrollToExpand="Scroll to Explore"
@@ -87,8 +87,9 @@ export default function Home() {
                 fontFamily: 'Inter, sans-serif',
                 fontSize: { xs: '2rem', md: '3rem' },
                 fontWeight: 600,
-                color: '#1a5f7a',
-                mb: 3
+                color: '#ffffff',
+                mb: 3,
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)'
               }}
             >
               Where the Ocean Meets Extraordinary Cuisine
@@ -98,9 +99,10 @@ export default function Home() {
               sx={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '1.1rem',
-                color: '#6b6b6b',
+                color: '#ffffff',
                 lineHeight: 1.8,
-                mb: 4
+                mb: 4,
+                textShadow: '0 1px 5px rgba(0,0,0,0.5)'
               }}
             >
               Experience luxury catering aboard private yachts, creating unforgettable moments on the open sea. 
@@ -116,7 +118,9 @@ export default function Home() {
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 500,
                   letterSpacing: '-0.01em',
-                  borderRadius: '10px'
+                  borderRadius: '10px',
+                  color: '#ffffff',
+                  borderColor: '#ffffff'
                 }}
               >
                 Explore Our Services
@@ -128,27 +132,27 @@ export default function Home() {
 
       {/* Luxury Features Section - Light & Transparent */}
       <Box
-        sx={{
-          py: { xs: 8, md: 12 },
-          position: 'relative',
-          overflow: 'hidden',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(255, 255, 255, 0.7)',
-            zIndex: 0
-          }
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          sx={{
+            py: { xs: 8, md: 12 },
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundImage: 'url(/pexels-asadphoto-11340077.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              zIndex: 0
+            }
+          }}
+        >
+          <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -237,28 +241,28 @@ export default function Home() {
 
       {/* Pricing Comparison Section - Modern & Transparent */}
       <Box
-        sx={{
-          py: { xs: 10, md: 15 },
-          position: 'relative',
-          overflow: 'hidden',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(255, 255, 255, 0.6)',
-            zIndex: 0
-          }
-        }}
-      >
+          sx={{
+            py: { xs: 10, md: 15 },
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundImage: 'url(/pexels-asadphoto-28408327.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
+              zIndex: 0
+            }
+          }}
+        >
 
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -461,28 +465,28 @@ export default function Home() {
 
       {/* Elegant CTA Section - Light & Modern */}
       <Box
-        sx={{
-          py: { xs: 10, md: 15 },
-          position: 'relative',
-          overflow: 'hidden',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(255, 255, 255, 0.7)',
-            zIndex: 0
-          }
-        }}
-      >
+          sx={{
+            py: { xs: 10, md: 15 },
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundImage: 'url(/pexels-diego-f-parra-33199-843633.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              zIndex: 0
+            }
+          }}
+        >
 
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
+          <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -492,9 +496,9 @@ export default function Home() {
           >
             <Box
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(26, 95, 122, 0.15)',
+                border: '1px solid rgba(26, 95, 122, 0.2)',
                 borderRadius: '20px',
                 p: { xs: 4, md: 6 }
               }}
@@ -504,10 +508,11 @@ export default function Home() {
                 sx={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  color: '#1a5f7a',
+                  color: '#ffffff',
                   mb: 3,
                   fontWeight: 500,
-                  letterSpacing: '-0.02em'
+                  letterSpacing: '-0.02em',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                 }}
               >
                 Ready to Set Sail?
@@ -516,11 +521,12 @@ export default function Home() {
                 variant="h6"
                 sx={{
                   fontFamily: 'Inter, sans-serif',
-                  color: '#6b6b6b',
+                  color: '#ffffff',
                   mb: 6,
                   fontSize: '1.3rem',
                   fontWeight: 400,
-                  lineHeight: 1.7
+                  lineHeight: 1.7,
+                  textShadow: '0 1px 5px rgba(0,0,0,0.5)'
                 }}
               >
                 Contact us to begin planning your extraordinary maritime dining experience. 

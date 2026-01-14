@@ -50,7 +50,7 @@ const Register = () => {
         }}
       >
         <ParallaxImage 
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          src="/pexels-asadphoto-28408327.jpg" 
           alt="Register"
           speed={0.2}
         />
@@ -124,7 +124,7 @@ const Register = () => {
         sx={{ 
           py: { xs: 8, md: 12 }, 
           position: 'relative',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundImage: 'url(/pexels-asadphoto-28408327.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

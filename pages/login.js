@@ -74,7 +74,7 @@ export default function Login() {
         }}
       >
         <ParallaxImage 
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          src="/pexels-snapwire-6934.jpg" 
           alt="Login"
           speed={0.2}
         />
@@ -148,7 +148,7 @@ export default function Login() {
         sx={{ 
           py: { xs: 8, md: 12 }, 
           position: 'relative',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundImage: 'url(/pexels-snapwire-6934.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

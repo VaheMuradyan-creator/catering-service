@@ -25,7 +25,7 @@ export default function Contact() {
         }}
       >
         <ParallaxImage 
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          src="/pexels-asadphoto-11340077.jpg" 
           alt="Contact Us"
           speed={0.2}
         />
@@ -53,7 +53,7 @@ export default function Contact() {
         >
           <Box
             component={motion.div}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             sx={{
@@ -62,7 +62,8 @@ export default function Contact() {
               border: '1px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '20px',
               p: { xs: 4, md: 6 },
-              maxWidth: '800px'
+              maxWidth: '800px',
+              mx: 'auto'
             }}
           >
             <Typography
@@ -99,7 +100,7 @@ export default function Contact() {
         sx={{ 
           py: { xs: 8, md: 12 }, 
           position: 'relative',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundImage: 'url(/pexels-asadphoto-11340077.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

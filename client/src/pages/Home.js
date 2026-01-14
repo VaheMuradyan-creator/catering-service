@@ -28,7 +28,7 @@ const Home = () => {
           height: '100vh',
           width: '100%',
           position: 'relative',
-          backgroundImage: 'url("/hero-bg.jpg")',
+          backgroundImage: 'url("/pexels-adriendrj-33980501.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -195,7 +195,7 @@ const Home = () => {
               >
                 <Box
                   component="img"
-                  src="/featured-image.jpg"
+                  src="/pexels-asadphoto-11340077.jpg"
                   alt="Featured Catering"
                   sx={{
                     width: '100%',
@@ -215,7 +215,7 @@ const Home = () => {
         sx={{
           py: 15,
           backgroundColor: 'rgba(0,0,0,0.8)',
-          backgroundImage: 'url("/stats-bg.jpg")',
+          backgroundImage: 'url("/pexels-asadphoto-28408327.jpg")',
           backgroundAttachment: 'fixed',
           backgroundSize: 'cover',
           backgroundBlendMode: 'overlay',

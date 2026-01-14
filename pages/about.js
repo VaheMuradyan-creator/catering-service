@@ -6,19 +6,19 @@ import TubelightNavbar from '../components/TubelightNavbar';
 export default function About() {
   const teamMembers = [
     {
-      name: "John Smith",
+      name: "James Mitchell",
       role: "Executive Chef",
       image: "/chef1.jpg",
       description: "With over 15 years of experience in fine dining"
     },
     {
-      name: "Maria Garcia",
+      name: "Ani Muradyan",
       role: "Event Coordinator",
       image: "/coordinator.jpg",
       description: "Specializes in creating unforgettable experiences"
     },
     {
-      name: "David Chen",
+      name: "Sarah Williams",
       role: "Pastry Chef",
       image: "/chef2.jpg",
       description: "Award-winning dessert specialist"
@@ -37,7 +37,7 @@ export default function About() {
         }}
       >
         <ParallaxImage 
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+          src="/pexels-asadphoto-11340077.jpg" 
           alt="About Us"
           speed={0.2}
         />
@@ -65,7 +65,7 @@ export default function About() {
         >
           <Box
             component={motion.div}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             sx={{
@@ -74,7 +74,8 @@ export default function About() {
               border: '1px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '20px',
               p: { xs: 4, md: 6 },
-              maxWidth: '800px'
+              maxWidth: '800px',
+              mx: 'auto'
             }}
           >
             <Typography
@@ -111,7 +112,7 @@ export default function About() {
         sx={{ 
           py: { xs: 8, md: 12 }, 
           position: 'relative',
-          backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80)',
+          backgroundImage: 'url(/pexels-asadphoto-28408327.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
